@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchAllMovies } from '../services/movieService'; // Import the service function
+import { fetchAllMovies } from '../services/movieService';
 import '../App.css';
 
 function FeaturedMovies() {

@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchAllMovies } from '../services/movieService';
 import '../App.css';
 
 function MovieList() {
   const [items, setItems] = useState([]);
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
 
   useEffect(() => {
-    fetchAllMovies()
-      .then(setItems)
+    fetch(`${backendUrl}/movies?type=movie`)
+      .then(response => response.json())
+      .then(data => {
+        if (Array.isArray(data.data)) {
+          setItems(data.data);
+        } else {
+          setItems([]);
+          console.error('Unexpected response format:', data);
+        }
+      })
       .catch(error => console.error('Error fetching the movie data:', error));
-  }, []);
+  }, [backendUrl]);
 
   return (
     <div className="movie-list">
-      <h2>Movies & TV Shows</h2>
+      <h2>Movies</h2>
       <div className="grid">
         {items.map(item => (
           <div key={item.id} className="movie-item">
