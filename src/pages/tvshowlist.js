@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchAllMovies } from '../services/movieService';
+import { fetchAllTVShows } from '../services/movieService';
 import '../App.css';
 
-function MovieList() {
+function TVShowList() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetchAllMovies()
+    fetchAllTVShows()
       .then(setItems)
-      .catch(error => console.error('Error fetching the movie data:', error));
+      .catch(error => console.error('Error fetching the TV show data:', error));
   }, []);
 
   return (
-    <div className="movie-list">
-      <h2>Movies & TV Shows</h2>
+    <div className="tvshow-list">
+      <h2>TV Shows</h2>
       <div className="grid">
         {items.map(item => (
-          <div key={item.id} className="movie-item">
+          <div key={item.id} className="tvshow-item">
             <Link to={`/movie/${item.id}`}>
               <img src={item.poster} alt={item.title} />
               <h3>{item.title}</h3>
@@ -29,4 +29,4 @@ function MovieList() {
   );
 }
 
-export default MovieList;
+export default TVShowList;

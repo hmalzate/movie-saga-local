@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchAllTVShows } from '../services/movieService'; // Import the service function
 import '../App.css';
 
 function FeaturedTVShows() {
   const [shows, setShows] = useState([]);
 
   useEffect(() => {
-    fetch('/db.json')
-      .then(response => response.json())
-      .then(data => setShows(data.tvshows))
-      .catch(error => console.error('Error fetching the JSON data:', error));
+    fetchAllTVShows()
+      .then(setShows)
+      .catch(error => console.error('Error fetching the TV show data:', error));
   }, []);
 
   return (
@@ -17,7 +17,7 @@ function FeaturedTVShows() {
       <div className="featured-header">
         <h2>Featured TV Shows</h2>
         <div className="view-all">
-          <Link to="/movies">View All</Link>
+          <Link to="/tvshows">View All</Link>
         </div>
       </div>
       <div className="featured-grid">

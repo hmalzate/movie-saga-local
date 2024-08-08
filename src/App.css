@@ -5,6 +5,10 @@ body {
   color: #e705b3;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 /* App Layout */
@@ -12,18 +16,21 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
 }
 
 /* Header Styles */
 .header {
   background-color: black;
   color: rgb(242, 0, 125);
-  padding: 0rem 1rem;
+  padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 8px solid rgb(217, 0, 255);
-  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .logo-container {
@@ -32,12 +39,12 @@ body {
 }
 
 .logo-img {
-  height: 150px;
+  height: 5vh;
   margin-right: 10px;
 }
 
 .logo-text {
-  font-size: 2rem;
+  font-size: 3vh;
   font-family: "URW Chancery L", cursive;
   font-weight: bold;
   color: rgb(242, 0, 125);
@@ -48,6 +55,8 @@ body {
   display: flex;
   margin: 0;
   padding: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .nav-links li {
@@ -57,11 +66,12 @@ body {
 .nav-links a {
   color: silver;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 2vh;
   font-family: "Chalkduster", fantasy;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -69,10 +79,72 @@ body {
   background-color: rgb(108, 108, 108);
 }
 
+.search-form {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+  position: absolute;
+  bottom: -20px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%; /* Adjust as needed */
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  font-size: 2vh;
+  border: 1px solid magenta; /* Updated border color */
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  flex-grow: 1;
+  background-color: transparent;
+  color: white;
+}
+
+.search-button {
+  padding: 0.5rem 1rem;
+  font-size: 2vh;
+  background-color: magenta;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+
+.user-name {
+  color: silver;
+  font-size: 2vh;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  color: silver;
+  font-size: 2vh;
+  font-family: "Chalkduster", fantasy;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+.logout-button:hover {
+  color: magenta;
+  background-color: rgb(108, 108, 108);
+}
+
 /* Hero Section Styles */
 .hero-slide {
   position: relative;
-  height: 40vh;
+  height: 35vh;
+  margin-top: 80px;
+  width: 100%;
 }
 
 .hero-img {
@@ -89,19 +161,18 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 2.5rem;
-  font-style: bold;
+  font-size: 3vh;
   margin: 0;
   padding: 0;
   color: rgb(242, 241, 247);
-  -webkit-text-stroke: 3px rgb(4, 5, 4);
+  -webkit-text-stroke: 0.2vh rgb(4, 5, 4);
 }
 
 .hero-text p {
-  font-size: 1.5rem;
+  font-size: 2vh;
   margin: 0;
   color: rgb(234, 246, 6);
-  -webkit-text-stroke: 1.2px rgb(14, 13, 13);
+  -webkit-text-stroke: 0.1vh rgb(14, 13, 13);
   font-style: bold;
 }
 
@@ -115,18 +186,18 @@ body {
 
 .hero-banner-bottom h1 {
   color: gold;
-  font-size: 2rem;
+  font-size: 2vh;
   margin-bottom: 1rem;
 }
 
 .hero-banner-bottom p {
   color: silver;
-  font-size: 1rem;
+  font-size: 1vh;
 }
 
 /* Featured Section Styles */
 .featured-section {
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: black;
   color: white;
 }
@@ -138,14 +209,14 @@ body {
 }
 
 .featured-header h2 {
-  font-size: 1.5rem;
+  font-size: 2vh;
   color: white;
 }
 
 .view-all a {
   color: gold;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.5vh;
   transition: color 0.3s;
 }
 
@@ -169,7 +240,7 @@ body {
   transition: transform 0.3s;
   flex: 0 0 auto;
   width: 18vw;
-  min-width: 150px; /* Ensure minimum width */
+  min-width: 150px;
 }
 
 .featured-item img {
@@ -183,7 +254,7 @@ body {
 .featured-item h3 {
   margin-top: 0.5rem;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.2vh;
   text-align: center;
 }
 
@@ -196,14 +267,14 @@ body {
   color: black;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
-  font-size: 0.8rem;
+  font-size: 0.8vh;
   text-align: center;
   margin-bottom: 0.5rem;
 }
 
 /* Movie List Styles */
 .movie-list {
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .movie-list .grid {
@@ -239,37 +310,78 @@ body {
   transform: scale(1.05);
 }
 
+/* TV Show List Styles */
+.tvshow-list {
+  padding: 1.5rem;
+}
+
+.tvshow-list .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.tvshow-item {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 23%;
+  transition: transform 0.3s;
+}
+
+.tvshow-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.tvshow-item h3 {
+  margin-top: 0.5rem;
+  color: black;
+}
+
+.tvshow-item:hover {
+  transform: scale(1.05);
+}
+
 /* Movie Detail Styles */
 .movie-detail {
   background-color: #0b1a30;
   color: white;
-  padding: 3rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 .movie-detail-header {
   display: flex;
-  width: 90%;
+  width: 100%;
   background-color: #1c1c1c;
   border-radius: 12px;
   overflow: hidden;
   z-index: 1;
   margin-bottom: 2rem;
+  box-sizing: border-box;
 }
 
 .movie-detail-poster {
-  width: 400px;
-  height: 600px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
   object-fit: cover;
   flex-shrink: 0;
   border-radius: 12px 0 0 12px;
 }
 
 .movie-detail-info {
-  padding: 3rem;
+  padding: 2rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -277,13 +389,13 @@ body {
 }
 
 .movie-detail-info h2 {
-  font-size: 3rem;
+  font-size: 2vh;
   color: magenta;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .movie-detail-info p {
-  font-size: 1.5rem;
+  font-size: 1.5vh;
   color: #d3d3d3;
   margin-bottom: 1rem;
 }
@@ -291,7 +403,7 @@ body {
 .movie-detail-actions {
   display: flex;
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .rent-button, .buy-button {
@@ -299,7 +411,7 @@ body {
   color: black;
   border: none;
   padding: 1rem 2rem;
-  font-size: 1.2rem;
+  font-size: 1.2vh;
   cursor: pointer;
   border-radius: 8px;
   transition: background-color 0.3s;
@@ -322,14 +434,14 @@ body {
 
 /* Content Section Styles */
 .content-section {
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: black;
   color: white;
   margin: 1rem 0;
 }
 
 .content-section h2 {
-  font-size: 2rem;
+  font-size: 2vh;
   color: magenta;
   margin-bottom: 1rem;
   text-align: left;
@@ -357,13 +469,13 @@ body {
 }
 
 .content-info h3 {
-  font-size: 1.5rem;
+  font-size: 1.5vh;
   color: magenta;
   margin-bottom: 1rem;
 }
 
 .content-info p {
-  font-size: 1.2rem;
+  font-size: 1.2vh;
   color: white;
   margin-bottom: 1rem;
 }
@@ -389,20 +501,24 @@ body {
   align-items: center;
   height: calc(100vh - 60px);
   background-color: black;
+  padding-top: 2rem;
 }
 
 .form {
   background: #979696;
-  padding: 2rem;
+  padding: 3rem;
   border: 5px solid #05d5f5;
   border-radius: 8px;
-  max-width: 400px;
+  max-width: 600px;
   width: 100%;
+  box-sizing: border-box;
+  margin-top: 1in; /* Positioning form 1 inch from the hero banner */
 }
 
 .form h2 {
   margin-bottom: 1rem;
   color: rgb(255, 0, 234);
+  font-size: 2.5vh;
 }
 
 .form label {
@@ -410,25 +526,29 @@ body {
   margin-bottom: 0.5rem;
   color: black;
   font-weight: bold;
+  font-size: 2vh;
 }
 
 .form input {
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   margin-bottom: 1rem;
   border: 1px solid #a804d1;
   border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 2vh;
 }
 
 .form button {
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   background: #333;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size: 2vh;
 }
 
 .form button:hover {
@@ -439,6 +559,7 @@ body {
   margin-top: 1rem;
   text-align: center;
   color: white;
+  font-size: 2vh;
 }
 
 .signup-link a {
@@ -498,32 +619,195 @@ body {
   gap: 1rem;
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
-  .footer {
-    flex-direction: column;
-  }
-
-  .footer-section {
-    margin-bottom: 2rem;
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .featured-grid, .actor-spotlight, .cinema-spotlight {
-    flex-wrap: nowrap;
-    justify-content: center;
+  .header {
+    flex-wrap: wrap;
   }
 
   .nav-links {
+    flex-wrap: nowrap;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .search-form {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    max-width: 100%;
+  }
+
+  .search-input,
+  .search-button {
+    width: auto;
+    border-radius: 4px;
+    margin-bottom: 0;
+  }
+
+  .user-name,
+  .logout-button {
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+
+  .hero-slide {
+    height: 40vh;
+    margin-top: 80px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5vh;
+    -webkit-text-stroke: 0.2vh rgb(4, 5, 4);
+  }
+
+  .hero-text p {
+    font-size: 2vh;
+    -webkit-text-stroke: 0.1vh rgb(14, 13, 13);
+  }
+
+  .featured-item {
+    width: 45%;
+  }
+
+  .movie-item {
+    width: 45%;
+  }
+
+  .tvshow-item {
+    width: 45%;
+  }
+
+  .form {
+    padding: 2rem;
+    border-width: 3px;
+  }
+
+  .form h2 {
+    font-size: 2.5vh;
+  }
+
+  .form label {
+    font-size: 2vh;
+  }
+
+  .form input {
+    padding: 1rem;
+  }
+
+  .form button {
+    padding: 1rem;
+    font-size: 2vh;
+  }
+
+  .signup-link {
+    font-size: 2vh;
+  }
+
+  .footer {
     flex-direction: column;
+    padding: 1rem;
   }
 
-  .nav-links li {
-    margin: 0.5rem 0;
+  .footer-section {
+    margin-bottom: 1rem;
   }
 
-  .featured-item, .spotlight-item {
-    width: 40vw; /* Maintain width for featured items */
+  .footer h4 {
+    font-size: 2.5vh;
   }
+}
+
+@media (max-width: 1024px) {
+  .featured-item {
+    width: 30%;
+  }
+
+  .movie-item {
+    width: 30%;
+  }
+
+  .tvshow-item {
+    width: 30%;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-form {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .search-button {
+    padding-right: 0.5rem;
+  }
+
+  .featured-item {
+    width: 100%;
+  }
+
+  .movie-item {
+    width: 100%;
+  }
+
+  .tvshow-item {
+    width: 100%;
+  }
+
+  .movie-detail-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-detail-poster {
+    border-radius: 12px;
+  }
+
+  .movie-detail-info {
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .movie-detail-info h2 {
+    font-size: 2.5vh;
+  }
+
+  .movie-detail-info p {
+    font-size: 2vh;
+  }
+
+  .movie-detail-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .rent-button,
+  .buy-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 2vh;
+  }
+}
+
+/* Dashboard Styles */
+.dashboard {
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.dashboard h2 {
+  font-size: 2.5vh;
+  color: magenta;
+}
+
+.dashboard p {
+  font-size: 2vh;
+  color: silver;
 }

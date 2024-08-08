@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchAllMovies } from '../services/movieService'; // Import the service function
 import '../App.css';
 
 function FeaturedMovies() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch('/db.json')
-      .then(response => response.json())
-      .then(data => setMovies(data.movies))
-      .catch(error => console.error('Error fetching the JSON data:', error));
+    fetchAllMovies()
+      .then(setMovies)
+      .catch(error => console.error('Error fetching the movie data:', error));
   }, []);
 
   return (
